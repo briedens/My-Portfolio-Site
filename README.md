@@ -1,2 +1,2 @@
-JQuery /br
+JQuery, 
 Anime JS 
