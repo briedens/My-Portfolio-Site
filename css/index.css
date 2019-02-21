@@ -1,0 +1,498 @@
+* {
+   padding: 0;
+   margin: 0;
+   
+}
+
+body {
+   overflow: hidden;
+}
+
+#main {
+   width: 100vw;
+   height: 100vh;
+   background-color: black;
+}
+
+#main .line1::after {
+   position: absolute;
+   content: '';
+   width: 40vw;
+   height: 1px;
+   top: 30%;
+   left: 30%;
+   background-color: yellow;
+   transform: rotate(-45deg);
+}
+
+
+#main .titleside {
+   width: 100%;
+   height: 100%;
+   background-image: url("/img/titleside.jpg");
+   background-size: cover;
+   background-position: center center;
+}
+
+#main .titleside .logo {
+   position: absolute;
+   top: 30px;
+   left: 30px;
+   font-family: 'GFS Didot', serif;
+   font-weight: 600;
+   font-size: 20px;
+   color: #adadad;
+}
+
+#main .titleside .logo .link:link {
+   text-decoration: inherit;
+   color: inherit;
+   cursor: pointer;
+}
+
+#main .titleside .logo .link:visited {
+   text-decoration: inherit;
+   color: inherit;
+   cursor: pointer;
+}
+
+#main .titleside .logo p {
+   margin: 0;
+}
+
+
+#main .titleside .title {
+   font-family: 'GFS Didot', serif;
+   color: rgb(154, 153, 152);
+   font-size: 40px;
+   position: absolute;
+   top: 50%;
+   left: 7%;
+   transform: translate(0, -50%);
+}
+
+#main .titleside .icons {
+   width: 200px;
+   height: 20px;
+   position: absolute;
+   bottom: 12%;
+   left: 15%;
+   background-color: darkblue;
+}
+
+
+#main .menuside {
+   height: 100vh;
+   width: 10vw;
+   background-color: #2b352e;
+   /*background-color: rgb(7, 7, 7);*/
+   opacity: 0.6;
+   position: absolute;
+   right: 0;
+   top: 50%;
+   transform: translate(0, -50%);
+   cursor: pointer;
+}
+
+
+#main .menuside .about {
+   display: none;
+   font-family: 'GFS Didot', serif;
+}
+
+#main .menuside .name{
+   position: absolute;
+   color: white;
+   font-size: 40px;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%) rotate(90deg);
+}
+
+#main .menuside.opened {
+   cursor: unset;
+}
+
+#main .menuside.opened .about {
+   display: inline-block;
+   width: 50%;
+   height: 100%;
+   padding: 50px;
+   color: #adadad;
+}
+
+#main .menuside.opened .about .title .small_title{
+   text-align: center;
+   font-size: 2.5em;
+}
+
+#main .menuside.opened .about .text{
+   font-family: 'Montserrat', sans-serif;
+   font-size: 1.2em;
+}
+
+#main .menuside.opened .wrap_projects {
+   width: 50%;
+   height: 100%;
+   float: right;
+   overflow: hidden;
+}
+
+#main .menuside.opened .projects {
+   width: 100%;
+   height: 100%;
+   display: grid;
+   grid-template-columns: repeat(4,100%);
+   grid-template-rows: 100%;
+}
+
+#main .menuside.opened .project {
+   width: 100%;
+   height: 100%;
+   background-size: cover;
+   background-position: center center;
+}
+
+#main .menuside.opened .project.about_img {
+   background-image: url(/img/aboutMe.jpeg);
+}
+
+#main .menuside.opened .buttons {
+   position: absolute;
+   width: 20%;
+   height: 80px;
+   right: 0;
+   bottom: 0;
+   z-index: 100;
+}
+
+#main .menuside.opened .buttons .prev{
+   display: inline-block;
+   width: 50%;
+   height: 100%;
+   position: relative;
+   bottom: -10px;
+   background-color: rgb(255, 255, 255);
+   cursor: pointer;
+
+   /* before click */
+   transform: translate(100%);
+   /*
+   display: none;
+   */
+}
+
+#main .menuside.opened .buttons .prev::after,#main .menuside.opened_mob .buttons .prev::after{
+   content: '';
+   position: absolute;
+   height: 3px;
+   width: 12px;
+   background-color: black;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -3px) rotate(-40deg);
+}
+
+#main .menuside.opened .buttons .prev::before, #main .menuside.opened_mob .buttons .prev::before{
+   content: '';
+   position: absolute;
+   height: 3px;
+   width: 12px;
+   background-color: black;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, 3px) rotate(40deg);
+}
+
+
+
+
+#main .menuside.opened .buttons .next{
+   width: 50%;
+   height: 100%;
+   position: relative;
+   bottom: -10px;
+   float: right;
+   background-color: rgb(7, 7, 7);
+   cursor: pointer;
+}
+
+#main .menuside.opened .buttons .next::after,#main .menuside.opened_mob .buttons .next::after{
+   content: '';
+   position: absolute;
+   height: 3px;
+   width: 12px;
+   background-color: white;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, -3px) rotate(40deg);
+}
+
+#main .menuside.opened .buttons .next::before, #main .menuside.opened_mob .buttons .next::before{
+   content: '';
+   position: absolute;
+   height: 3px;
+   width: 12px;
+   background-color: white;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%, 3px) rotate(-40deg);
+}
+
+
+#main .menuside .all{
+   opacity: 0;
+}
+
+#main .menuside.opened .all{
+   position: absolute;
+   width: 300px;
+   height: 90px;
+   bottom: -5px;
+   left: 32%;
+   /*background-color: rgb(51, 51, 51);*/
+   background-color: rgb(21,43,45);
+   cursor: pointer;
+}
+
+#main .menuside.opened .all .text,#main .menuside.opened_mob .all .text {
+   position: absolute;
+   top: 50%;
+   left: 50%;
+   transform: translate(-50%,-50%);
+   font-weight: 500;
+   font-size: 30px;
+   color: white;
+   margin: 0;
+}
+
+#main .menuside.opened .all .counter,#main .menuside.opened_mob .all .counter {
+   color: white;
+   width: 100%;
+   position: absolute;
+   top: 50%;
+   
+
+
+   display: none;
+}
+
+#main .menuside.opened .all .counter .current_num,#main .menuside.opened_mob .all .counter .current_num{
+   position: absolute;
+   left: 25%;
+   transform: translate(0,-50%);
+}
+
+#main .menuside.opened .all .counter .line, #main .menuside.opened_mob .all .counter .line{
+   content: '';
+   position: absolute;
+   left: 50%;
+   transform: translate(-50%);
+   width: 30%;
+   height: 3px;
+   background-color: white;
+}
+
+#main .menuside.opened .all .counter .line_current, #main .menuside.opened_mob .all .counter .line_current{
+   content: '';
+   position: absolute;
+   left: 35%;
+   height: 3px;
+   background-color: rgb(88, 88, 88);
+   transition: 500ms;
+}
+
+#main .menuside.opened .all .counter .total_num, #main .menuside.opened_mob .all .counter .total_num {
+   position: absolute;
+   right: 25%;
+   transform: translate(0,-50%);
+}
+
+#main .menuside.opened .closing_btn {
+   position: absolute;
+   top: 0;
+   width: 50px;
+   height: 50px;
+   cursor: pointer;
+}
+
+#main .menuside.opened .closing_btn:before, #main .menuside.opened_mob .closing_btn:before{
+   content: '';
+   position: absolute;
+   width: 20px;
+   height: 3px;
+   top: 50%;
+   left: 30%;
+   transform: rotate(45deg) ;
+   background-color: yellow;
+}
+#main .menuside.opened .closing_btn:after,#main .menuside.opened_mob .closing_btn:after{
+   content: '';
+   position: absolute;
+   width: 20px;
+   height: 3px;
+   top: 50%;
+   left: 30%;
+   transform: rotate(-45deg) ;
+   background-color: yellow;
+}
+
+
+#main .menuside.opened .line10 {
+   content: '';
+   position: absolute;
+   width: 200px;
+   height: 2px;
+   background-color: rgb(255, 255, 255);
+   top: 50px;
+   left: -50px;
+   transform: rotate(-45deg);
+}
+
+
+
+
+
+/*****   ALL FOR MOBILE   *****/
+
+@media screen and (max-width: 767px) {
+   
+   #main .titleside .title {
+      font-family: 'GFS Didot', serif;
+      color: rgb(211, 209, 208);
+      position: absolute;
+      top: 40%;
+      left: 7%;
+      transform: translate(0, -50%);
+   }
+
+   #main .titleside .title h1 {
+      font-size: 35px;
+   }
+   
+   #main .menuside {
+      height: 10vh;
+      width: 94vw;
+      left: 3vw;
+      top: unset;
+      bottom: 0;
+      transform: unset;
+   }
+
+   #main .menuside .name{
+      font-size: 40px;
+      top: 50%;
+      left: 50%;
+      transform: translate(-50%,-50%);
+   }
+
+   #main .menuside.opened_mob {
+      cursor: unset;
+   }
+
+   #main .menuside.opened_mob .about {
+      position: absolute;
+      top: 5vh;
+      width: 100%;
+      height: 40vh;
+      padding: 0 7vw;
+      color: #adadad;
+      display: unset;
+   }
+
+   #main .menuside.opened_mob .about .text{
+      font-family: 'Montserrat', sans-serif;
+      font-size: 0.9em;
+      margin-bottom: 2vh;
+   }
+
+   #main .menuside.opened_mob .about .title .small_title{
+      text-align: center;
+      font-size: 2em;
+      margin-bottom: 2vh;
+   }
+   
+   #main .menuside.opened_mob .wrap_projects {
+      position: absolute;
+      top: 45vh;
+      width: 100%;
+      height: 42vh;
+      overflow: hidden;
+   }
+
+   #main .menuside.opened_mob .projects {
+      width: 100%;
+      height: 100%;
+      display: grid;
+      grid-template-columns: repeat(4,100%);
+      grid-template-rows: 100%;
+      background-size: cover;
+      background-position: center center;
+   }
+   
+   #main .menuside.opened_mob .project {
+      width: 100%;
+      height: 100%;
+      background-size: cover;
+      background-position: center center;
+   }
+
+   #main .menuside.opened_mob .project.about_img {
+      background-image: url(/img/aboutMe.jpeg);
+   }
+
+   #main .menuside.opened_mob .buttons {
+      position: absolute;
+      width: 100vw;
+      height: 10vh;
+      left: -3vw;
+      bottom: 0;
+      z-index: 100;
+   }
+
+   #main .menuside.opened_mob .buttons .prev{
+      display: inline-block;
+      width: 25vw;
+      height: 100%;
+      position: absolute;
+      background-color: rgb(255, 255, 255);
+      cursor: pointer;
+   
+      /* before click */
+      
+      display: none;
+      
+   }
+   
+   #main .menuside.opened_mob .buttons .next{
+      width: 25vw;
+      height: 100%;
+      position: absolute;
+      right: 0;
+      background-color: rgb(7, 7, 7);
+      cursor: pointer;
+   }
+
+   #main .menuside.opened_mob .all{
+      position: absolute;
+      width: 50vw;
+      height: 12vh;
+      bottom: 0;
+      left: 22vw;
+      background-color: rgb(21,43,45);
+      cursor: pointer;
+      z-index: 100;
+   }
+
+   #main .menuside.opened_mob .closing_btn {
+      position: absolute;
+      top: 0;
+      width: 50px;
+      height: 50px;
+      cursor: pointer;
+   }
+
+
+
+}
+
