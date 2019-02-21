@@ -1,1 +1,2 @@
-# my_portfolio_site
+JQuery 
+Anime JS 
